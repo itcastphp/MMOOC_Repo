@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.dao.DocumentDao">
+    <resultMap id="myDocument" type="document">
+        <id property="id" column="id"></id>
+        <result property="name" column="name"></result>
+        <result property="key" column="key"></result>
+        <result property="url" column="url"></result>
+        <result property="summary" column="summary"></result>
+        <result property="uploadDate" column="uploadDate"></result>
+        <association property="userInfo" column="uploadUser" javaType="userinfo" resultMap="myUserInfo"></association>
+        <association property="classify" column="kind" javaType="classify" resultMap="myClassify"></association>
+    </resultMap>
+    <resultMap id="myUserInfo" type="userinfo">
+        <result property="nickname" column="nickname"></result>
+        <result property="userType" column="userType"></result>
+        <result property="username" column="username"></result>
+    </resultMap>
+    <resultMap id="myClassify" type="classify">
+        <result property="bigName" column="bigName"></result>
+        <result property="smallName" column="smallName"></result>
+    </resultMap>
+
+    <insert id="insertDocument" parameterType="document">
+        insert into document(kind,name,uploadUser) values(#{kind},#{name},#{uploadUser})
+    </insert>
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--设置类型别名-->
+        <typeAliases>
+            <!--配置别名-->
+            <!--type    待配置的类的全类名-->
+           <!-- <typeAlias type="java.lang.String" alias="string"></typeAlias>-->
+
+            <!--给当前package下所有的类设置别名，name是包名，默认的别名是类名小写-->
+            <package name="java.lang"></package>
+            <package name="com.qfedu.domain"></package>
+            <package name="java.util"></package>
+        </typeAliases>
+
+
+
+</configuration>

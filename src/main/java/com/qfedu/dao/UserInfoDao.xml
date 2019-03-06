@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.dao.UserInfoDao">
+    <resultMap id="MyUserInfo" type="userinfo">
+        <id property="username" column="username"></id>
+        <result property="name" column="name"></result>
+        <result property="email" column="email"></result>
+        <result property="createTime" column="createTime"></result>
+        <collection property="operations" ofType="Operation" resultMap="MyOperation"></collection>
+    </resultMap>
+    <resultMap id="MyOperation" type="operation">
+        <result property="name" column="name"></result>
+        <result property="time" column="time"></result>
+        <result property="type" column="type"></result>
+    </resultMap>
+</mapper>
